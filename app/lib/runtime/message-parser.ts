@@ -1,16 +1,16 @@
-import type { ActionType, BoltAction, BoltActionData, FileAction, ShellAction } from '~/types/actions';
-import type { BoltArtifactData } from '~/types/artifact';
+import type { ActionType, plutoAction, plutoActionData, FileAction, ShellAction } from '~/types/actions';
+import type { plutoArtifactData } from '~/types/artifact';
 import { createScopedLogger } from '~/utils/logger';
 import { unreachable } from '~/utils/unreachable';
 
-const ARTIFACT_TAG_OPEN = '<boltArtifact';
-const ARTIFACT_TAG_CLOSE = '</boltArtifact>';
-const ARTIFACT_ACTION_TAG_OPEN = '<boltAction';
-const ARTIFACT_ACTION_TAG_CLOSE = '</boltAction>';
+const ARTIFACT_TAG_OPEN = '<plutoArtifact';
+const ARTIFACT_TAG_CLOSE = '</plutoArtifact>';
+const ARTIFACT_ACTION_TAG_OPEN = '<plutoAction';
+const ARTIFACT_ACTION_TAG_CLOSE = '</plutoAction>';
 
 const logger = createScopedLogger('MessageParser');
 
-export interface ArtifactCallbackData extends BoltArtifactData {
+export interface ArtifactCallbackData extends plutoArtifactData {
   messageId: string;
 }
 
@@ -18,7 +18,7 @@ export interface ActionCallbackData {
   artifactId: string;
   messageId: string;
   actionId: string;
-  action: BoltAction;
+  action: plutoAction;
 }
 
 export type ArtifactCallback = (data: ArtifactCallbackData) => void;
@@ -46,8 +46,8 @@ interface MessageState {
   position: number;
   insideArtifact: boolean;
   insideAction: boolean;
-  currentArtifact?: BoltArtifactData;
-  currentAction: BoltActionData;
+  currentArtifact?: plutoArtifactData;
+  currentAction: plutoActionData;
   actionId: number;
 }
 
@@ -110,7 +110,7 @@ export class StreamingMessageParser {
                */
               actionId: String(state.actionId - 1),
 
-              action: currentAction as BoltAction,
+              action: currentAction as plutoAction,
             });
 
             state.insideAction = false;
@@ -136,7 +136,7 @@ export class StreamingMessageParser {
                 artifactId: currentArtifact.id,
                 messageId,
                 actionId: String(state.actionId++),
-                action: state.currentAction as BoltAction,
+                action: state.currentAction as plutoAction,
               });
 
               i = actionEndIndex + 1;
@@ -191,7 +191,7 @@ export class StreamingMessageParser {
               const currentArtifact = {
                 id: artifactId,
                 title: artifactTitle,
-              } satisfies BoltArtifactData;
+              } satisfies plutoArtifactData;
 
               state.currentArtifact = currentArtifact;
 
@@ -283,3 +283,4 @@ const createArtifactElement: ElementFactory = (props) => {
 function camelToDashCase(input: string) {
   return input.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
+

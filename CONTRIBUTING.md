@@ -33,7 +33,7 @@ deployed using [CloudFlare Pages](https://pages.cloudflare.com/) and
 Pluto uses the [AI SDK](https://github.com/vercel/ai) to integrate with AI
 models. At this time, Pluto supports using Anthropic's Claude Sonnet 3.5.
 You can get an API key from the [Anthropic API Console](https://console.anthropic.com/) to use with Pluto.
-Take a look at how [Pluto uses the AI SDK](https://github.com/stackblitz/bolt.new/tree/main/app/lib/.server/llm)
+Take a look at how [Pluto uses the AI SDK](https://github.com/stackblitz/pluto/tree/main/app/lib/.server/llm)
 
 ## Prerequisites
 
@@ -109,3 +109,4 @@ pnpm run deploy
 ```
 
 Make sure you have the necessary permissions and Wrangler is correctly configured for your Cloudflare account.
+

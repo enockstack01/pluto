@@ -35,7 +35,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ![Making your project public](https://github.com/stackblitz/bolt.new/blob/main/public/project-visibility.jpg?raw=true)
+        ![Making your project public](https://github.com/stackblitz/pluto/blob/main/public/project-visibility.jpg?raw=true)
   - type: textarea
     id: steps
     attributes:
@@ -73,3 +73,4 @@ body:
     attributes:
       label: Additional context
       description: Add any other context about the problem here.
+

@@ -27,8 +27,8 @@ export const Messages = React.forwardRef<HTMLDivElement, MessagesProps>((props: 
               <div
                 key={index}
                 className={classNames('flex gap-4 p-6 w-full rounded-[calc(0.75rem-1px)]', {
-                  'bg-bolt-elements-messages-background': isUserMessage || !isStreaming || (isStreaming && !isLast),
-                  'bg-gradient-to-b from-bolt-elements-messages-background from-30% to-transparent':
+                  'bg-pluto-elements-messages-background': isUserMessage || !isStreaming || (isStreaming && !isLast),
+                  'bg-gradient-to-b from-pluto-elements-messages-background from-30% to-transparent':
                     isStreaming && isLast,
                   'mt-4': !isFirst,
                 })}
@@ -46,8 +46,9 @@ export const Messages = React.forwardRef<HTMLDivElement, MessagesProps>((props: 
           })
         : null}
       {isStreaming && (
-        <div className="text-center w-full text-bolt-elements-textSecondary i-svg-spinners:3-dots-fade text-4xl mt-4"></div>
+        <div className="text-center w-full text-pluto-elements-textSecondary i-svg-spinners:3-dots-fade text-4xl mt-4"></div>
       )}
     </div>
   );
 });
+

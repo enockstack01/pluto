@@ -163,9 +163,9 @@ function Folder({ folder: { depth, name }, collapsed, selected = false, onClick 
   return (
     <NodeButton
       className={classNames('group', {
-        'bg-transparent text-bolt-elements-item-contentDefault hover:text-bolt-elements-item-contentActive hover:bg-bolt-elements-item-backgroundActive':
+        'bg-transparent text-pluto-elements-item-contentDefault hover:text-pluto-elements-item-contentActive hover:bg-pluto-elements-item-backgroundActive':
           !selected,
-        'bg-bolt-elements-item-backgroundAccent text-bolt-elements-item-contentAccent': selected,
+        'bg-pluto-elements-item-backgroundAccent text-pluto-elements-item-contentAccent': selected,
       })}
       depth={depth}
       iconClasses={classNames({
@@ -190,18 +190,18 @@ function File({ file: { depth, name }, onClick, selected, unsavedChanges = false
   return (
     <NodeButton
       className={classNames('group', {
-        'bg-transparent hover:bg-bolt-elements-item-backgroundActive text-bolt-elements-item-contentDefault': !selected,
-        'bg-bolt-elements-item-backgroundAccent text-bolt-elements-item-contentAccent': selected,
+        'bg-transparent hover:bg-pluto-elements-item-backgroundActive text-pluto-elements-item-contentDefault': !selected,
+        'bg-pluto-elements-item-backgroundAccent text-pluto-elements-item-contentAccent': selected,
       })}
       depth={depth}
       iconClasses={classNames('i-ph:file-duotone scale-98', {
-        'group-hover:text-bolt-elements-item-contentActive': !selected,
+        'group-hover:text-pluto-elements-item-contentActive': !selected,
       })}
       onClick={onClick}
     >
       <div
         className={classNames('flex items-center', {
-          'group-hover:text-bolt-elements-item-contentActive': !selected,
+          'group-hover:text-pluto-elements-item-contentActive': !selected,
         })}
       >
         <div className="flex-1 truncate pr-2">{name}</div>
@@ -407,3 +407,4 @@ function compareNodes(a: Node, b: Node): number {
 
   return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' });
 }
+
